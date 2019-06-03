@@ -47,6 +47,7 @@ public class Client {
 
   public void addMobilePhone(Mobile mobile){
     mobilePhones.add(mobile);
+    mobile.setClient(this);
   }
 
   private String Name;

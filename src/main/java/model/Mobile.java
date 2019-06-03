@@ -15,14 +15,16 @@ public class Mobile {
   public Mobile() {
   }
 
-  public Mobile(String number, Client client, double balance) throws Exception{
+  public Mobile(String number, double balance) throws Exception{
     if(number.length()!=11) throw new Exception("Неверный номер");
     this.number = number;
     this.client = client;
-    client.addMobilePhone(this);
     this.balance = balance;
   }
 
+  public void setClient(Client client) {
+    this.client = client;
+  }
 
   public String getNumber() {
     return number;

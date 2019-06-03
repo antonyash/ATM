@@ -12,9 +12,12 @@ public class UserRegistrationController {
     name = validateName(name);
     surname=validateName(surname);
     try{
-      if(name!=""&&surname!=""){
+
+      if(!name.equals("")&&!surname.equals("")){
+        if(pin<1000||pin>9999) throw new Exception("Некорректный пин");
+        Mobile mobile = new Mobile(mobileNumber,0);
         Client client = new Client(name,surname,new ArrayList<Mobile>());
-        client.addMobilePhone(new Mobile(mobileNumber,client,0));
+        client.addMobilePhone(mobile);
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.add(Calendar.YEAR,+3);
 

@@ -19,70 +19,76 @@ public class MainView {
 
     boolean check = true;
 
+
     while (check) {
-      if (currentClient == null) {
-        System.out.println("\n1.Выбрать пользователя\n" +
-                "2.Новый пользователь\n" +
-                "3.Новый банк\n" +
-                "4.Новая компания\n" +
-                "0.Выход\n");
 
-        int input = in.nextInt();
+      try{
+        if (currentClient == null) {
+          System.out.println("\n1.Выбрать пользователя\n" +
+                  "2.Новый пользователь\n" +
+                  "3.Новый банк\n" +
+                  "4.Новая компания\n" +
+                  "0.Выход\n");
 
-        switch (input) {
-          case 1: {
-            currentClient = chooseClient();
-            break;
-          }
-          case 2: {
-            new BankView().newClient();
-            break;
-          }
-          case 3: {
-            newBank();
-            break;
-          }
-          case 4: {
-            new BankView().newCompany();
-            break;
-          }
-          case 0: {
-            check = false;
-            break;
-          }
+          int input = Integer.parseInt(in.next());
 
-        }
-      } else {
-        System.out.println("\nТекущий пользователь:" +
-                currentClient.getName() + " " + currentClient.getSurname() +
-                "\n1.Выбрать пользователя\n" +
-                "2.Пойти в банкомат\n" +
-                "3.Пойти в банк\n" +
-                "0.Выход\n");
+          switch (input) {
+            case 1: {
+              currentClient = chooseClient();
+              break;
+            }
+            case 2: {
+              new BankView().newClient();
+              break;
+            }
+            case 3: {
+              newBank();
+              break;
+            }
+            case 4: {
+              new BankView().newCompany();
+              break;
+            }
+            case 0: {
+              check = false;
+              break;
+            }
 
-        int input = in.nextInt();
+          }
+        } else {
+          System.out.println("\nТекущий пользователь:" +
+                  currentClient.getName() + " " + currentClient.getSurname() +
+                  "\n1.Выбрать пользователя\n" +
+                  "2.Пойти в банкомат\n" +
+                  "3.Пойти в банк\n" +
+                  "0.Выход\n");
 
-        switch (input) {
-          case 1: {
-            currentClient = chooseClient();
-            break;
-          }
-          case 2: {
-            new AtmView().menu(currentClient);
-            break;
-          }
-          case 3: {
-            new BankView().menu(currentClient);
-            break;
-          }
-          case 0: {
-            check = false;
-            break;
-          }
+          int input = in.nextInt();
 
+          switch (input) {
+            case 1: {
+              currentClient = chooseClient();
+              break;
+            }
+            case 2: {
+              new AtmView().menu(currentClient);
+              break;
+            }
+            case 3: {
+              new BankView().menu(currentClient);
+              break;
+            }
+            case 0: {
+              check = false;
+              break;
+            }
+
+          }
         }
       }
-
+      catch(Exception e){
+        System.out.println(e.getMessage());
+      }
     }
 
   }

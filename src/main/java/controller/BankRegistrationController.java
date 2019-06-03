@@ -12,7 +12,7 @@ public class BankRegistrationController {
 
   public void addNewBank(String name,int encodeValue){
     try{
-      if(validateName(name)&&name!=""){
+      if(validateName(name)&&!name.equals("")){
         if(encodeValue<=0) throw new Exception("Значение должно быть больше нуля");
         else {
           Bank bank = new Bank(name,new Encoder(encodeValue));

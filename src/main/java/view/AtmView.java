@@ -132,12 +132,15 @@ public class AtmView {
 
     for (BillType type : BillType.values()
     ) {
-      System.out.println(type.getValue());
-      int count = in.nextInt();
+      if(type!=BillType.ANY){
+        System.out.println(type.getValue());
+        int count = in.nextInt();
 
-      for (int i = 0; i < count; i++) {
-        bills.add(new Bill(type));
+        for (int i = 0; i < count; i++) {
+          bills.add(new Bill(type));
+        }
       }
+
     }
 
     if (atmController.pushMoney(atm, bills, card))
