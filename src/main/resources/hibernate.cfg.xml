@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/AtmProject</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">1337</property>
+
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+
+        <!-- thread is the short name for org.hibernate.context.ThreadLocalSessionContext -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Set "true" to show SQL statements -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- DB schema will be updated if needed -->
+        <!--<property name="hbm2ddl.auto">update</property> -->
+
+        <mapping class="model.Atm"/>
+        <mapping class="model.Bank"/>
+        <mapping class="model.BankAccount"/>
+        <mapping class="model.Card"/>
+        <mapping class="model.Client"/>
+        <mapping class="model.ClientBankAccount"/>
+        <mapping class="model.Company"/>
+        <mapping class="model.CompanyBankAccount"/>
+        <mapping class="model.Department"/>
+        <mapping class="model.Encoder"/>
+        <mapping class="model.Mobile"/>
+        <mapping class="model.MoneyCase"/>
+        <mapping class="model.PaymentSystem"/>
+        <mapping class="model.Transaction"/>
+
+    </session-factory>
+</hibernate-configuration>
